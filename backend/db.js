@@ -1,40 +1,20 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
-const mongoURI = "mongodb://foodiee:1234567890@ac-dokwmsd-shard-00-00.awt0z3t.mongodb.net:27017,ac-dokwmsd-shard-00-01.awt0z3t.mongodb.net:27017,ac-dokwmsd-shard-00-02.awt0z3t.mongodb.net:27017/foodieemern?ssl=true&replicaSet=atlas-5se2xv-shard-0&authSource=admin&retryWrites=true&w=majority"
- 
- 
-const mongoDB = async()=>{
+const mongoURI =
+  "mongodb+srv://foodiee:1234567890@cluster0.awt0z3t.mongodb.net/foodieemern?retryWrites=true&w=majority";
 
-   await mongoose.connect(mongoURI)
+const mongoDB = async () => {
+  await mongoose.connect(mongoURI);
 
-   console.log('connected');
+  console.log("connected");
 
-   const fetchedData = await mongoose.connection.db.collection("food_items")
+  const data = await mongoose.connection.db
+    .collection("food_items")
+    .find()
+    .toArray();
 
-   fetchedData.find({}).toArray((err,data)=>{
-    console.log(data);
-  if(err) console.log(err)
-  else console.log(data);
+  console.log("data", data);
+};
 
-})
-} 
-
-
-
-
-
-// const conn = mongoose.createConnection(mongoURI)
-// conn.on('connected', async(err,result) =>{
-// if(err) console.log(err);
-// else{
-//   console.log('connected');
-//   const fetchedData = await mongoose.connection.db.collection("food_items")
-//   fetchedData.find({}).toArray(function(err,data){
-//     if(err) console.log(err);
-//     else console.log(data);
-//   })
-// }
-// } );
-
-
-module.exports = mongoDB
+module.exports = mongoDB;
