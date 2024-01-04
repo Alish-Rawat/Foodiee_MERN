@@ -9,7 +9,7 @@ export default function NavBar() {
     navigate("/login");
   };
 
-  return (
+  return ( 
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
         <div className="container-fluid">
