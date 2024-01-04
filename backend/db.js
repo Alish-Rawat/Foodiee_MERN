@@ -13,8 +13,14 @@ const mongoDB = async () => {
     .collection("food_items")
     .find()
     .toArray();
+  const foodCategory = await mongoose.connection.db
+    .collection("foodCategory")
+    .find()
+    .toArray();
 
-  console.log("data", data);
+  global.food_items = data;
+  global.foodCategory = foodCategory;
+  // console.log("data", global.food_items);
 };
 
 module.exports = mongoDB;
