@@ -16,7 +16,7 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
-    let response = await fetch("foodiee-mern-api.vercel.app
+    let response = await fetch("https://foodiee-mern-api.vercel.app
 /api/orderData", {
       method: "POST",
       headers: {
