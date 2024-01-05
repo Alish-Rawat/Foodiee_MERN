@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
-import Carousal from "../components/Carousal";
+// import Carousal from "../components/Carousal";
 
 export default function Home() {
   const [foodCategory, setFoodCategory] = useState([]);
@@ -115,7 +115,9 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {foodCategory !== [] ? (
+        {foodCategory === [] ? (
+          <div>HI</div>
+        ) : (
           foodCategory.map((data) => {
             return (
               <div className="row mb-3">
@@ -151,8 +153,6 @@ export default function Home() {
               </div>
             );
           })
-        ) : (
-          <div>"""""</div>
         )}
       </div>
 
