@@ -4,27 +4,17 @@ const port = 5000;
 const mongoDB = require("./db");
 const cors = require("cors");
 
-app.use(
-  cors({
-    origin: ["https://foodiee-mern-frontend.vercel.app"],
-    methods: ["POST", "GET", "UPDATE"],
-    credentials: true,
-  })
-);
-
-app.use(express.json());
-
-// app.app.use((req, res, next) => {
-//   res.setHeader(
-//     "Access-Control-allow-Origin",
-//     "https://foodiee-mern-frontend.vercel.app"
-//   );
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-Width, Content-Type,Accept"
-//   );
-//   next();
-// });
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-allow-Origin",
+    "https://foodiee-mern-frontend.vercel.app"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-Width, Content-Type,Accept"
+  );
+  next();
+});
 
 mongoDB();
 app.get("/", (req, res) => {

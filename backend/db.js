@@ -1,16 +1,20 @@
 const mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 const express = require("express");
+const express = require("express");
+const app = express();
 
-app.use(
-  cors({
-    origin: ["https://foodiee-mern-frontend.vercel.app"],
-    methods: ["POST", "GET", "UPDATE"],
-    credentials: true,
-  })
-);
-
-app.use(express.json());
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-allow-Origin",
+    "https://foodiee-mern-frontend.vercel.app"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-Width, Content-Type,Accept"
+  );
+  next();
+});
 
 const mongoURI =
   "mongodb+srv://foodiee:1234567890@cluster0.awt0z3t.mongodb.net/foodieemern?retryWrites=true&w=majority";
