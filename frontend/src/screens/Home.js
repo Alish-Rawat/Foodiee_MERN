@@ -10,7 +10,7 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   let loadDAta = async () => {
-    let response = await fetch("https://foodiee-mern.vercel.app/api/foodData", {
+    let response = await fetch("https://foodiee-mern-frontend.vercel.app", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
