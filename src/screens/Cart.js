@@ -13,6 +13,26 @@ export default function Cart() {
       </div>
     );
   }
+
+  const handleCheckOut = async () => {
+    let userEmail = localStorage.getItem("userEmail");
+    let response = await fetch("http://localhost:5000/api/orderData", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        order_data: data,
+        email: userEmail,
+        order_date: new Date().toDateString(),
+      }),
+    });
+    console.log("order response", response);
+    if (response.status === 200) {
+      dispatch({ type: "DROP" });
+    }
+  };
+
   let totalPrice = data.reduce((total, food) => total + food.price, 0);
   return (
     <div>
@@ -54,7 +74,9 @@ export default function Cart() {
         <div>
           <h1 className="fs-2">Total Price:{totalPrice}/-</h1>
         </div>
-        <button className="btn bg-success mt-5">Check Out</button>
+        <button className="btn bg-success mt-5" onClick={handleCheckOut}>
+          Check Out
+        </button>
       </div>
     </div>
   );

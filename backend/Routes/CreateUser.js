@@ -85,7 +85,7 @@ router.post(
 
       return res.json({ success: true, authToken: authToken });
     } catch (error) {
-      console.log(err);
+      console.log(error);
       res.json({ success: false });
     }
   }
