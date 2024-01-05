@@ -4,7 +4,10 @@ const port = 5000;
 const mongoDB = require("./db");
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-allow-Origin", "");
+  res.setHeader(
+    "Access-Control-allow-Origin",
+    "https://foodiee-mern-frontend.vercel.app"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-Width, Content-Type,Accept"
