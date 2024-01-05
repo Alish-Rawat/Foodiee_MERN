@@ -7,8 +7,7 @@ export default function MyOrder() {
 
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    await fetch("https://foodiee-mern-api.vercel.app
-/api/myorderdata", {
+    await fetch("https://foodiee-mern-api.vercel.app/api/myorderdata", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",
@@ -24,7 +23,7 @@ export default function MyOrder() {
     });
 
     // await res.map((data)=>{
-      //  console.log(data)
+    //  console.log(data)
     // })
   };
 
@@ -38,7 +37,7 @@ export default function MyOrder() {
         <Navbar />
       </div>
 
-       <div className="container">
+      <div className="container">
         <div className="row">
           {orderData !== {}
             ? Array(orderData).map((data) => {
@@ -104,7 +103,7 @@ export default function MyOrder() {
               })
             : ""}
         </div>
-      </div> 
+      </div>
 
       <Footer />
     </>

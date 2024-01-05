@@ -15,19 +15,21 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://foodiee-mern-api.vercel.app
-/api/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: credentials.name,
-        email: credentials.email,
-        password: credentials.password,
-        location: credentials.geolocation,
-      }),
-    });
+    const response = await fetch(
+      "https://foodiee-mern-api.vercel.app/api/createuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: credentials.name,
+          email: credentials.email,
+          password: credentials.password,
+          location: credentials.geolocation,
+        }),
+      }
+    );
     const json = await response.json();
     console.log(json);
 
