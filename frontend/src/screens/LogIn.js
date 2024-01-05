@@ -15,7 +15,7 @@ export default function LogIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      "https://foodiee-mern-api.vercel.app/api/loginuser",
+      "https://foodiee-mern.vercel.app/api/loginuser",
       {
         method: "POST",
         headers: {

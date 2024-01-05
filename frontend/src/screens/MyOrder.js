@@ -7,7 +7,7 @@ export default function MyOrder() {
 
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    await fetch("https://foodiee-mern-api.vercel.app/api/myorderdata", {
+    await fetch("https://foodiee-mern.vercel.app/api/myorderdata", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",
