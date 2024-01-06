@@ -117,7 +117,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {/* {foodCategory === [] ? (
+        {foodCategory === [] ? (
           <div>HI</div>
         ) : (
           foodCategory.map((data) => {
@@ -155,8 +155,7 @@ export default function Home() {
               </div>
             );
           })
-        )} */}
-        HIiii
+        )}
       </div>
 
       <Footer />
