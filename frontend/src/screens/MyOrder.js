@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 
+let a = "https://foodiee-mern.vercel.app"
+
 export default function MyOrder() {
   const [orderData, setorderData] = useState("");
 

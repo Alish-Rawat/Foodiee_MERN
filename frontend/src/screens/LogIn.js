@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import img from "../img/burgerback.jpg";
 
+let a = "https://foodiee-mern.vercel.app"
+
 export default function LogIn() {
   const [credentials, setCredentials] = useState({
     email: "",

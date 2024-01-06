@@ -3,6 +3,8 @@ import { useCart, useDispatchCart } from "../components/ContextReducer";
 
 import trash from "../trash.svg";
 
+let a = "https://foodiee-mern.vercel.app";
+
 export default function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
