@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 
-let a = "https://foodiee-mern.vercel.app"
+// let a = "https://foodiee-mern.vercel.app";
 
 export default function MyOrder() {
   const [orderData, setorderData] = useState("");
 
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    await fetch("https://foodiee-mern.vercel.app/api/myorderdata", {
+    await fetch(process.env.Hostt+ "/api/myorderdata", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

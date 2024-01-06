@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Card from "../components/Card";
 // import Carousal from "../components/Carousal";
 
-let a = "https://foodiee-mern.vercel.app";
+// let a = "https://foodiee-mern.vercel.app";
 
 export default function Home() {
   const [foodCategory, setFoodCategory] = useState([]);
@@ -12,7 +12,7 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   let loadDAta = async () => {
-    let response = await fetch("https://foodiee-mern.vercel.app/api/foodData", {
+    let response = await fetch(process.env.Hostt + "/api/foodData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -117,7 +117,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {foodCategory === [] ? (
+        {/* {foodCategory === [] ? (
           <div>HI</div>
         ) : (
           foodCategory.map((data) => {
@@ -155,7 +155,8 @@ export default function Home() {
               </div>
             );
           })
-        )}
+        )} */}
+        HIiii
       </div>
 
       <Footer />

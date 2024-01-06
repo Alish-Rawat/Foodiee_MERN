@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import img from "../img/burgerback.jpg";
 
-let a = "https://foodiee-mern.vercel.app"
+// let a = "https://foodiee-mern.vercel.app";
 
 export default function LogIn() {
   const [credentials, setCredentials] = useState({
@@ -16,19 +16,16 @@ export default function LogIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      "https://foodiee-mern.vercel.app/api/loginuser",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: credentials.email,
-          password: credentials.password,
-        }),
-      }
-    );
+    const response = await fetch(process.env.Hostt + "/api/loginuser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
     const json = await response.json();
     console.log(json);
 
