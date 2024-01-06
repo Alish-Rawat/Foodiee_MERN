@@ -12,12 +12,15 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   let loadDAta = async () => {
-    let response = await fetch("https://foodiee-mern.vercel.app" + "/api/foodData", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let response = await fetch(
+      "https://foodiee-mern.vercel.app" + "/api/foodData",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     response = await response.json();
     // console.log(response[0], response[1]);
@@ -117,7 +120,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {foodCategory === [] ? (
+        {foodCategory.length === 0 ? (
           <div>HI</div>
         ) : (
           foodCategory.map((data) => {
