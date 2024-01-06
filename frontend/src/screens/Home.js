@@ -32,6 +32,8 @@ export default function Home() {
     loadDAta();
   }, []);
 
+  if (!foodCategory) return null;
+
   return (
     <>
       <div>
