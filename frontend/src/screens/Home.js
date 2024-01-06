@@ -33,6 +33,7 @@ export default function Home() {
   }, []);
 
   if (!foodCategory) return null;
+  if (!foodData) return null;
 
   return (
     <>
@@ -132,7 +133,9 @@ export default function Home() {
                   {data.CategoryName}
                 </div>
                 <hr />
-                {foodData !== [] ? (
+                {foodData.length === 0 ? (
+                  <div>No SUch Data Found</div>
+                ) : (
                   foodData
                     .filter(
                       (item) =>
@@ -154,8 +157,6 @@ export default function Home() {
                         </div>
                       );
                     })
-                ) : (
-                  <div>No SUch Data Found</div>
                 )}
               </div>
             );
