@@ -5,22 +5,27 @@ import Card from "../components/Card";
 // import Carousal from "../components/Carousal";
 
 // let a = "https://foodiee-mern.vercel.app";
+async function a() {
+  let data = await fetch("https://foodiee-mern.vercel.app/api/foodData");
+  let k = await data.json();
+  console.log(k);
+  console.log(data);
+}
+a();
 
+console.log(process.env.REACT_APP_HOSTT);
 export default function Home() {
   const [foodCategory, setFoodCategory] = useState([]);
   const [foodData, setFoodData] = useState([]);
   const [search, setSearch] = useState("");
 
   let loadDAta = async () => {
-    let response = await fetch(
-      "https://foodiee-mern.vercel.app" + "/api/foodData",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(process.env.REACT_APP_HOSTT + "/api/foodData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     response = await response.json();
     // console.log(response[0], response[1]);
@@ -31,9 +36,6 @@ export default function Home() {
   useEffect(() => {
     loadDAta();
   }, []);
-
-  if (!foodCategory) return null;
-  if (!foodData) return null;
 
   return (
     <>
@@ -123,7 +125,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {foodCategory.length === 0 ? (
+        {foodCategory === [] ? (
           <div>HI</div>
         ) : (
           foodCategory.map((data) => {
@@ -133,9 +135,7 @@ export default function Home() {
                   {data.CategoryName}
                 </div>
                 <hr />
-                {foodData.length === 0 ? (
-                  <div>No SUch Data Found</div>
-                ) : (
+                {foodData !== [] ? (
                   foodData
                     .filter(
                       (item) =>
@@ -157,6 +157,8 @@ export default function Home() {
                         </div>
                       );
                     })
+                ) : (
+                  <div>No SUch Data Found</div>
                 )}
               </div>
             );

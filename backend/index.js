@@ -7,7 +7,8 @@ const mongoDB = require("./db");
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-allow-Origin",
-    "https://foodiee-mern-frontend.vercel.app"
+    "https://foodiee-mern-frontend.vercel.app",
+    "http://localhost:3000"
   );
   res.header(
     "Access-Control-Allow-Headers",

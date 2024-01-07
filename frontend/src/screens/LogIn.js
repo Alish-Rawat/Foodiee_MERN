@@ -16,7 +16,7 @@ export default function LogIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://foodiee-mern.vercel.app" + "/api/loginuser", {
+    const response = await fetch(process.env.REACT_APP_HOSTT  + "/api/loginuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -18,7 +18,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      "https://foodiee-mern.vercel.app" + "/api/createuser",
+      process.env.REACT_APP_HOSTT + "/api/createuser",
       {
         method: "POST",
         headers: {
