@@ -13,14 +13,6 @@ import Card from "../components/Card";
 // };
 // p();
 
-fetch("https://foodiee-mern.vercel.app/api/fooddata")
-  .then((res) => {
-    res.json();
-  })
-  .then((data) => {
-    console.log(data);
-  });
-
 // console.log(process.env.REACT_APP_HOSTT);
 export default function Home() {
   const [foodCategory, setFoodCategory] = useState([1]);
@@ -28,7 +20,7 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   let loadDAta = async () => {
-    let response = await fetch("http://localhost:5000/api/fooddata/", {
+    let response = await fetch(process.env.REACT_APP_HOSTT + "/api/fooddata/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
