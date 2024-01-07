@@ -5,23 +5,31 @@ import Card from "../components/Card";
 // import Carousal from "../components/Carousal";
 
 // let a = "https://foodiee-mern.vercel.app";
-async function a() {
-  let data = await fetch("https://foodiee-mern.vercel.app/api/foodData");
-  let k = await data.json();
-  console.log(k);
-  console.log(data);
-}
-a();
+// let p = async function () {
+//   let data = await fetch("https://foodiee-mern.vercel.app/api/foodData");
+//   let k = await data.json();
+//   console.log(k);
+//   // console.log(data);
+// };
+// p();
 
-console.log(process.env.REACT_APP_HOSTT);
+fetch("https://foodiee-mern.vercel.app/api/fooddata")
+  .then((res) => {
+    res.json();
+  })
+  .then((data) => {
+    console.log(data);
+  });
+
+// console.log(process.env.REACT_APP_HOSTT);
 export default function Home() {
-  const [foodCategory, setFoodCategory] = useState([]);
-  const [foodData, setFoodData] = useState([]);
+  const [foodCategory, setFoodCategory] = useState([1]);
+  const [foodData, setFoodData] = useState([1]);
   const [search, setSearch] = useState("");
 
   let loadDAta = async () => {
-    let response = await fetch(process.env.REACT_APP_HOSTT + "/api/foodData", {
-      method: "POST",
+    let response = await fetch("http://localhost:5000/api/fooddata/", {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
@@ -37,6 +45,9 @@ export default function Home() {
     loadDAta();
   }, []);
 
+  // if (!foodCategory) setFoodCategory(1);
+  // if (!foodData) setFoodCategory(1);
+  console.log(foodData, foodCategory);
   return (
     <>
       <div>
@@ -125,7 +136,8 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {foodCategory === [] ? (
+        {/* {foodCategory.length == 0 ? <div>hii</div> : <div>by</div>} */}
+        {foodCategory.length === 1 ? (
           <div>HI</div>
         ) : (
           foodCategory.map((data) => {
@@ -135,7 +147,7 @@ export default function Home() {
                   {data.CategoryName}
                 </div>
                 <hr />
-                {foodData !== [] ? (
+                {foodData.length !== 1 ? (
                   foodData
                     .filter(
                       (item) =>
