@@ -16,16 +16,19 @@ export default function LogIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(process.env.REACT_APP_HOSTT  + "/api/loginuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
+    const response = await fetch(
+      process.env.REACT_APP_HOSTT + "/api/loginuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      }
+    );
     const json = await response.json();
     console.log(json);
 
@@ -50,7 +53,7 @@ export default function LogIn() {
         <Navbar />
       </div>
       <div
-        className="d-flex align-items-center justify-content-center"
+        className="d-flex align-items-center justify-content-center text-white"
         style={{
           backgroundImage:
             "url(https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19744.jpg?w=826&t=st=1704454064~exp=1704454664~hmac=b446ccafb92b94e5fe192bc037766d9a86d7bb4e0dd227bd6031dcb154f63a0e)",
