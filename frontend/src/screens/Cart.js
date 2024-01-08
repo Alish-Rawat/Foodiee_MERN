@@ -11,27 +11,27 @@ export default function Cart() {
   if (data.length === 0) {
     return (
       <div>
-        <div className="m-5 w-100 text-center fs-3"> Your Order has been placed!! THANKYOU </div>
+        <div className="m-5 w-100 text-center fs-3">
+          {" "}
+          Your Order has been placed!! THANKYOU{" "}
+        </div>
       </div>
     );
   }
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
-    let response = await fetch(
-      process.env.REACT_APP_HOSTT  + "/api/orderData",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({
-          order_data: data,
-          email: userEmail,
-          order_date: new Date().toDateString(),
-        }),
-      }
-    );
+    let response = await fetch(process.env.REACT_APP_HOSTT + "/api/orderData", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        order_data: data,
+        email: userEmail,
+        order_date: new Date().toDateString(),
+      }),
+    });
     console.log("order response", response);
     if (response.status === 200) {
       dispatch({ type: "DROP" });
@@ -53,10 +53,10 @@ export default function Cart() {
               <th scope="col"></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-white">
             {data.map((food, index) => (
               <tr>
-                <th scope="row">{index + 1}</th>
+                <th scope="row ">{index + 1}</th>
                 <td>{food.name}</td>
                 <td>{food.qty}</td>
                 <td>{food.size}</td>
