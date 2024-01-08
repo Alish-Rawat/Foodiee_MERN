@@ -11,7 +11,7 @@ export default function Cart() {
   if (data.length === 0) {
     return (
       <div>
-        <div className="m-5 w-100 text-center text-white fs-3">
+        <div className="m-sm-5 w-100 text-center text-white fs-3  mt-4">
           {" "}
           Your Order has been placed!! THANKYOU{" "}
         </div>
