@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
+import Shimmer from "../components/Shimmer";
 // import Carousal from "../components/Carousal";
 
 // let a = "https://foodiee-mern.vercel.app";
@@ -20,15 +21,12 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   let loadDAta = async () => {
-    let response = await fetch(
-      process.env.REACT_APP_HOSTT2 + "/api/fooddata/",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(process.env.REACT_APP_HOSTT + "/api/fooddata/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     response = await response.json();
     // console.log(response[0], response[1]);
@@ -133,7 +131,9 @@ export default function Home() {
       <div className="container">
         {/* {foodCategory.length == 0 ? <div>hii</div> : <div>by</div>} */}
         {foodCategory.length === 1 ? (
-          <div>HI</div>
+          <div className="row mb-3">
+            <Shimmer />
+          </div>
         ) : (
           foodCategory.map((data) => {
             return (
@@ -165,7 +165,7 @@ export default function Home() {
                       );
                     })
                 ) : (
-                  <div>No SUch Data Found</div>
+                  <div>No Such Data Found</div>
                 )}
               </div>
             );
