@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const port = 5000;
-const mongoDB = require("./Routes/DisplayData");
-// const cors = require("cors");
+// const mongoDB = require("./Routes/DisplayData");
+// import { mongoDB } from "./Routes/DisplayData";
 
 app.use((req, res, next) => {
   res.setHeader(
@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-
+// mongoDB();
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

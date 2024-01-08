@@ -19,26 +19,31 @@ app.use((req, res, next) => {
   next();
 });
 
+let data = [];
+let foodCategory = [];
+
 const mongoURI =
   "mongodb+srv://foodiee:1234567890@cluster0.awt0z3t.mongodb.net/foodieemern?retryWrites=true&w=majority";
 
 const mongoDB = async () => {
-  await mongoose.connect(mongoURI);
+  if (data.length === 0 && foodCategory.length === 0) {
+    await mongoose.connect(mongoURI);
 
-  // setTimeout(async () => {
-  console.log("connected");
-  const data = await mongoose.connection.db
-    .collection("food_items")
-    .find()
-    .toArray();
-  const foodCategory = await mongoose.connection.db
-    .collection("foodCategory")
-    .find()
-    .toArray();
-  // global.food_items = data;
-  // global.foodCategory = foodCategory;
-  // }, 5000);
-  // console.log("data", global.food_items);
+    // setTimeout(async () => {
+    console.log("connected");
+    data = await mongoose.connection.db
+      .collection("food_items")
+      .find()
+      .toArray();
+    foodCategory = await mongoose.connection.db
+      .collection("foodCategory")
+      .find()
+      .toArray();
+    // global.food_items = data;
+    // global.foodCategory = foodCategory;
+    // }, 5000);
+    // console.log("data", global.food_items);
+  }
 
   return { data, foodCategory };
 };
@@ -57,3 +62,4 @@ router.get("/fooddata", async (req, res) => {
 // mongoDB();
 
 module.exports = router;
+// module.exports = mongoDB;

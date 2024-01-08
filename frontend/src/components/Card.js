@@ -62,8 +62,11 @@ export default function Card(props) {
   }, []);
 
   return (
-    <div>
-      <div className="card mt-3" style={{ width: "16rem", maxHeight: "380px" }}>
+    <div className="d-flex justify-content-center align-items-center justify mb-2 mb-sm-0">
+      <div
+        className="card mt-3  align-items-center"
+        style={{ width: "17rem", maxHeight: "380px" }}
+      >
         <img
           src={props.foodItem.img}
           className="card-img-top p-1"

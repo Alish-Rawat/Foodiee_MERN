@@ -20,12 +20,15 @@ export default function Home() {
   const [search, setSearch] = useState("");
 
   let loadDAta = async () => {
-    let response = await fetch(process.env.REACT_APP_HOSTT + "/api/fooddata/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let response = await fetch(
+      process.env.REACT_APP_HOSTT2 + "/api/fooddata/",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     response = await response.json();
     // console.log(response[0], response[1]);
