@@ -1,4 +1,7 @@
 import React from "react";
+import Burger from "../images/Burger.jpg";
+import dessert from "../images/dessert.jpg";
+import Dumplings from "../images/Dumplings.jpg";
 
 export default function () {
   return (
@@ -9,7 +12,10 @@ export default function () {
         data-bs-ride="carousel  "
         style={{ objectFit: "contain !important" }}
       >
-        <div className="carousel-inner" style={{ "max-height": "500px" }}>
+        <div
+          className="carousel-inner"
+          style={{ "max-height": "500px", "min-height": "499px" }}
+        >
           <div className="carousel-caption" style={{ zIndex: "10" }}>
             <form className="d-flex">
               <input
@@ -29,7 +35,16 @@ export default function () {
 
           <div className="carousel-item active">
             <img
-              src="https://source.unsplash.com/random/900×700?burger"
+              src={Burger}
+              className="d-block w-100  "
+              style={{ filter: "brightness(30%)" }}
+              alt="..."
+            />
+          </div>
+
+          <div className="carousel-item">
+            <img
+              src={Dumplings}
               className="d-block w-100"
               style={{ filter: "brightness(30%)" }}
               alt="..."
@@ -38,16 +53,7 @@ export default function () {
 
           <div className="carousel-item">
             <img
-              src="https://source.unsplash.com/random/900×700?momos"
-              className="d-block w-100"
-              style={{ filter: "brightness(30%)" }}
-              alt="..."
-            />
-          </div>
-
-          <div className="carousel-item">
-            <img
-              src="https://source.unsplash.com/random/900×700?icecream"
+              src={dessert}
               className="d-block w-100"
               style={{ filter: "brightness(30%)" }}
               alt="..."
