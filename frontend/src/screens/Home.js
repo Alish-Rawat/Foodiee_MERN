@@ -3,6 +3,9 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import Shimmer from "../components/Shimmer";
+import Burger from "../images/Burger.jpg";
+import dessert from "../images/dessert.jpg";
+import Dumplings from "../images/Dumplings.jpg";
 // import Carousal from "../components/Carousal";
 
 // let a = "https://foodiee-mern.vercel.app";
@@ -53,7 +56,10 @@ export default function Home() {
           data-bs-ride="carousel  "
           style={{ objectFit: "contain !important" }}
         >
-          <div className="carousel-inner" style={{ "max-height": "500px" }}>
+          <div
+            className="carousel-inner"
+            style={{ "max-height": "500px", "min-height": "399px" }}
+          >
             <div className="carousel-caption" style={{ zIndex: "10" }}>
               <div className="d-flex justify-content-center">
                 <input
@@ -77,7 +83,7 @@ export default function Home() {
 
             <div className="carousel-item active">
               <img
-                src="https://source.unsplash.com/random/900×700?burger"
+                src={Burger}
                 className="d-block w-100"
                 style={{ filter: "brightness(30%)" }}
                 alt="..."
@@ -86,7 +92,7 @@ export default function Home() {
 
             <div className="carousel-item">
               <img
-                src="https://source.unsplash.com/random/900×700?momos"
+                src={Dumplings}
                 className="d-block w-100"
                 style={{ filter: "brightness(30%)" }}
                 alt="..."
@@ -95,7 +101,7 @@ export default function Home() {
 
             <div className="carousel-item">
               <img
-                src="https://source.unsplash.com/random/900×700?icecream"
+                src={dessert}
                 className="d-block w-100"
                 style={{ filter: "brightness(30%)" }}
                 alt="..."
