@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatchCart, useCart } from "./ContextReducer";
+import { useNavigate } from "react-router-dom";
 
 export default function Card(props) {
   let data = useCart();
@@ -9,8 +10,18 @@ export default function Card(props) {
   const [size, setSize] = useState("");
   let dispatch = useDispatchCart();
   let priceRef = useRef();
+  let navigate = useNavigate();
+  const [addCart, setAddCart] = useState(true);
 
   const handleAddToCart = async () => {
+    if (localStorage.getItem("authToken") === null) {
+      navigate("/createuser");
+    }
+    setAddCart(false);
+    setTimeout(() => {
+      setAddCart(true);
+    }, 2000);
+
     let food = [];
     for (const item of data) {
       if (item.id === props.foodItem._id) {
@@ -114,7 +125,11 @@ export default function Card(props) {
             className="btn btn-success justify-center ms-2"
             onClick={handleAddToCart}
           >
-            Add to Cart
+            {addCart ? (
+              <div>Add to Cart</div>
+            ) : (
+              <div className="text-white">Added to Cart</div>
+            )}
           </button>
         </div>
       </div>

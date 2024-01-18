@@ -65,7 +65,7 @@ export default function NavBar() {
             {!localStorage.getItem("authToken") ? (
               <div className="d-flex">
                 <Link className="btn bg-white text-success mx-2 " to="/login">
-                  LogIn
+                  Log In
                 </Link>
 
                 <Link
