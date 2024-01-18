@@ -51,7 +51,7 @@ export default function Card(props) {
       size: size,
       img: props.foodItem.img,
     });
-
+    alert("Item added to the Cart");
     // console.log(data);
   };
 

@@ -8,6 +8,7 @@ import { useCart } from "./ContextReducer";
 export default function NavBar() {
   const navigate = useNavigate();
   const [cartView, setCartView] = useState(false);
+
   let data = useCart();
 
   const handleLogOut = () => {
@@ -23,7 +24,7 @@ export default function NavBar() {
             Foodiee
           </Link>
           <button
-            className="navbar-toggler"
+            class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -31,8 +32,9 @@ export default function NavBar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mt-1">
               <li className="nav-item">
